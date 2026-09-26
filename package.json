@@ -1,0 +1,25 @@
+{
+  "name": "snip",
+  "version": "1.0.0",
+  "description": "A fast, minimal URL shortener with click analytics, built with Node.js and Express.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "url-shortener",
+    "express",
+    "nodejs",
+    "rest-api"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

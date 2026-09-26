@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snip · URL shortener</title>
+  <meta name="description" content="Paste a long link, get a short one, and track every click." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <span class="badge">URL shortener</span>
+      <h1>Snip long links<span class="accent">.</span></h1>
+      <p>Paste a long link, get a short one, and see how many people click it.</p>
+    </header>
+
+    <form id="shorten-form" class="card form" novalidate>
+      <label class="sr-only" for="url">Long URL</label>
+      <input id="url" type="text" inputmode="url" placeholder="https://example.com/a/very/long/link" autocomplete="off" required />
+      <div class="row">
+        <label class="sr-only" for="alias">Custom alias (optional)</label>
+        <input id="alias" type="text" placeholder="custom-alias (optional)" autocomplete="off" />
+        <button type="submit" class="primary">Shorten</button>
+      </div>
+      <p id="error" class="error" role="alert"></p>
+    </form>
+
+    <section id="result" class="card result" hidden aria-live="polite">
+      <div>
+        <span class="label">Your short link</span>
+        <a id="short-link" target="_blank" rel="noopener"></a>
+      </div>
+      <button id="copy" type="button">Copy</button>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Recent links</h2>
+        <button id="refresh" type="button" class="ghost">Refresh</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Short link</th><th>Destination</th><th class="num">Clicks</th><th></th></tr>
+          </thead>
+          <tbody id="links"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="muted">No links yet. Create your first one above.</p>
+    </section>
+
+    <footer class="footer">Built with Node.js &amp; Express · <a href="/api/links">JSON API</a></footer>
+  </main>
+</body>
+</html>
